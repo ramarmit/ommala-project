@@ -195,6 +195,18 @@ public class ShoppingServiceTest {
 		assertTrue(shoppingService.placeOrder().startsWith("O"));
 		
 	}
-	
+	@Test
+	public void placeOrderShouldGiveOrderNumberNew2() {
+		Product laptop = new Product(100, "HP Laptop", 15000.00, 1);
+		Product watch = new Product(101, "Titan Watch", 45000.00, 1);
+
+		shoppingService.addItem(laptop);
+		shoppingService.addItem(watch);
+		
+		assertNotNull(shoppingService.placeOrder());
+		assertTrue(shoppingService.placeOrder().length() > 10);
+		assertTrue(shoppingService.placeOrder().startsWith("O"));
+		
+	}
 
 }
